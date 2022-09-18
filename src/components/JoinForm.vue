@@ -34,6 +34,7 @@
                     type="text"
                     name="user"
                     id="user"
+                    ref="user"
                     :placeholder="userPlaceholder"
                     class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-offset-0 focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5 transition dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
                   />
@@ -89,6 +90,10 @@ export default defineComponent({
   mounted() {
     this.roomPlaceholder = this.randomName();
     this.userPlaceholder = this.randomUsername();
+
+    if (this.$route.query.nickname == "false") {
+      this.$refs.user.focus()
+    }
   },
   methods: {
     join() {

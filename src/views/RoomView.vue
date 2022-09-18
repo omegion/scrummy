@@ -25,7 +25,7 @@ export default defineComponent({
   },
   beforeCreate() {
     if (this.$route.query.name === undefined || this.$route.query.name === "") {
-      this.$router.push(`/?room=${this.$route.params.room}`);
+      this.$router.push(`/?room=${this.$route.params.room}&nickname=false`);
     }
   },
   beforeUnmount() {
