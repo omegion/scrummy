@@ -1,6 +1,6 @@
 FROM node:18-alpine as build
 
-ENV PORT 443
+ENV PORT 80
 
 WORKDIR /app
 
@@ -17,7 +17,7 @@ RUN npm prune --production
 
 FROM node:18-alpine
 
-ENV PORT 443
+ENV PORT 80
 ENV NODE_ENV production
 
 WORKDIR /app
