@@ -1,0 +1,2 @@
+# scrummy
+Scrum sizing game
