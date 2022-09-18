@@ -1,10 +1,10 @@
 <template>
-  <div :class="{ dark: isDark }">
+  <div :class="{ dark: isDark }" class="">
     <div
-      class="bg-gray-50 dark:bg-slate-900 flex flex-col h-screen justify-between"
+      class="bg-gray-50 dark:bg-slate-900 relative min-h-screen justify-between"
     >
       <Header @darkMoodToggled="darkMoodToggled" />
-      <main class="py-24">
+      <main class="py-16">
         <router-view />
       </main>
       <Footer />

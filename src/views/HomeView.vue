@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="pb-20">
     <JoinForm />
   </main>
 </template>

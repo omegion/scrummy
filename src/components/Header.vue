@@ -6,11 +6,11 @@
       <div class="px-4 pb-14 sm:px-0 sm:pb-0">
         <div class="h-16 flex items-center justify-between">
           <!-- Logo -->
-          <div class="flex-1 flex">
+          <div class="flex-1 flex group">
             <router-link to="/" tag="a" class="flex items-center">
               <img
                 src="https://omegion.dev/logo-200.png"
-                class="mr-3 h-8"
+                class="mr-3 h-8 transition duration-300 group-hover:rotate-45"
                 alt="Omegion Logo"
               />
               <span

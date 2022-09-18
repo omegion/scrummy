@@ -7,16 +7,12 @@
       <div class="py-20">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
           <div class="mb-6 md:mb-0">
-            <router-link to="/" tag="a" class="flex items-center">
+            <router-link to="/" tag="a" class="flex items-center group">
               <img
                 src="https://omegion.dev/logo-200.png"
-                class="mr-3 h-8"
+                class="mr-3 h-8 transition duration-300 group-hover:rotate-45"
                 alt="Omegion Logo"
               />
-              <span
-                class="text-gray-500 self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-                >Scrummy</span
-              >
             </router-link>
             <div class="mt-6 text-sm text-gray-500 dark:text-slate-400">
               Scrummy is a story point estimation game for scrum teams,
@@ -37,7 +33,8 @@
           </span>
           <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a
-              href="#"
+              href="https://github.com/omegion/scrummy"
+              target="_blank"
               class="text-gray-500 hover:text-gray-900 dark:hover:text-slate-50 transition"
             >
               <svg
