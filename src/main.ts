@@ -8,7 +8,7 @@ import store from "./store";
 
 import "./assets/style.css";
 
-const port = import.meta.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 const app = createApp(App);
 const socket = socketIO(`:${port}`, {
