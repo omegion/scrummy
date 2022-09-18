@@ -12,6 +12,10 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: Import Secrets
         id: secrets
         uses: hashicorp/vault-action@v2.4.1
