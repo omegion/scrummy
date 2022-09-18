@@ -7,7 +7,7 @@
     <Dialog
       as="div"
       class="fixed z-10 inset-0 overflow-y-auto"
-      :class="{ dark: isDark }"
+      :class="{ dark: !isDark }"
       @close="open = false"
     >
       <div
@@ -27,7 +27,6 @@
           />
         </TransitionChild>
 
-        <!-- This element is to trick the browser into centering the modal contents. -->
         <span
           class="hidden sm:inline-block sm:align-middle sm:h-screen"
           aria-hidden="true"
@@ -57,14 +56,6 @@
                     Voting guide
                   </DialogTitle>
                   <div class="mt-2">
-                    <h3 class="font-semibold text-sm mt-4 dark:text-slate-50">
-                      What is points?
-                    </h3>
-                    <p class="text-sm text-gray-500 dark:text-slate-400">
-                      Are you sure you want to deactivate your account? All of
-                      your data will be permanently removed. This action cannot
-                      be undone.
-                    </p>
                     <h3 class="font-semibold text-sm mt-4 dark:text-slate-50">
                       How voting works?
                     </h3>
@@ -148,7 +139,7 @@ export default {
   data() {
     return {
       open: false,
-      isDark: localStorage.getItem("darkMode") === "true",
+      isDark: localStorage.getItem("lightMode") === "true",
     };
   },
 };

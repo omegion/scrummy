@@ -25,13 +25,13 @@
               <Switch
                 v-model="isDark"
                 :class="[
-                  isDark ? 'bg-gray-600' : 'bg-gray-200',
+                  isDark ? 'bg-gray-200': 'bg-gray-600',
                   'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-pink-500',
                 ]"
               >
                 <span
                   :class="[
-                    isDark ? 'translate-x-5' : 'translate-x-0',
+                    isDark ? 'translate-x-0':'translate-x-5',
                     'pointer-events-none relative inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200',
                   ]"
                 >
@@ -44,7 +44,7 @@
                     ]"
                     aria-hidden="true"
                   >
-                    <SunIcon class="h-3 w-3 text-gray-400" />
+                    <MoonIcon class="h-3 w-3 text-gray-600" />
                   </span>
                   <span
                     :class="[
@@ -55,7 +55,7 @@
                     ]"
                     aria-hidden="true"
                   >
-                    <MoonIcon class="h-3 w-3 text-gray-600" />
+                    <SunIcon class="h-3 w-3 text-gray-400" />
                   </span>
                 </span>
               </Switch>
@@ -100,7 +100,7 @@ export default defineComponent({
     MoonIcon,
   },
   data() {
-    let isDark = localStorage.getItem("darkMode") == "true";
+    let isDark = localStorage.getItem("lightMode") == "true";
     return {
       holder: false,
       isDark: isDark,
@@ -110,7 +110,7 @@ export default defineComponent({
   watch: {
     isDark(val) {
       this.$emit("darkMoodToggled", val);
-      localStorage.setItem("darkMode", val);
+      localStorage.setItem("lightMode", val);
     },
   },
 });

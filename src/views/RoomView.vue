@@ -4,7 +4,6 @@
       <RoomHeader />
     </div>
   </div>
-
   <Cards />
   <VotingDeck />
 </template>

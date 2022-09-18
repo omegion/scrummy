@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ dark: isDark }" class="">
+  <div :class="{ dark: !isLight }">
     <div
       class="bg-gray-50 dark:bg-slate-900 relative min-h-screen justify-between"
     >
@@ -52,7 +52,7 @@ export default defineComponent({
   },
   data() {
     return {
-      isDark: localStorage.getItem("darkMode") == "true",
+      isLight: localStorage.getItem("lightMode") == "true",
     };
   },
   watch: {
@@ -65,7 +65,7 @@ export default defineComponent({
   },
   methods: {
     darkMoodToggled(val: boolean) {
-      this.isDark = val;
+      this.isLight = val;
     },
   },
 });

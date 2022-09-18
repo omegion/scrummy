@@ -1,6 +1,10 @@
 export default {
   fibonacci: [
     {
+      name: "0.5",
+      value: 0.5,
+    },
+    {
       name: "1",
       value: 1,
     },
@@ -25,16 +29,12 @@ export default {
       value: 13,
     },
     {
-      name: "21",
-      value: 21,
+      name: "20",
+      value: 20,
     },
     {
-      name: "34",
-      value: 34,
-    },
-    {
-      name: "55",
-      value: 55,
+      name: "40",
+      value: 40,
     },
   ],
 };
