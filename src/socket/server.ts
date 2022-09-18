@@ -55,7 +55,7 @@ export class ChatServer {
     this.io = new socketio.Server(this.server, {
       allowEIO3: true,
       cors: {
-        origin: "localhost",
+        origin: "*",
       },
     });
   }
