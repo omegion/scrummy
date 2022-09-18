@@ -8,6 +8,9 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
+      meta: {
+        title: "Scrummy - Scrum sizing game for remote teams"
+      }
     },
     {
       path: "/:room",
@@ -16,6 +19,9 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/RoomView.vue"),
+      meta: {
+        title: "Scrummy - Scrum sizing game for remote teams"
+      }
     },
   ],
 });

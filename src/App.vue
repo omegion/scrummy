@@ -55,6 +55,14 @@ export default defineComponent({
       isDark: localStorage.getItem("darkMode") == "true",
     };
   },
+  watch: {
+    '$route':{
+      handler: (to, from) => {
+        document.title = to.meta.title
+      },
+      immediate: true
+    }
+  },
   methods: {
     darkMoodToggled(val: boolean) {
       this.isDark = val;

@@ -30,7 +30,7 @@ export class ChatServer {
   }
 
   private createApp(): void {
-    var history = require("connect-history-api-fallback");
+    const history = require("connect-history-api-fallback");
 
     this.app = express();
     this.app.use(cors());
@@ -55,7 +55,7 @@ export class ChatServer {
     this.io = new socketio.Server(this.server, {
       allowEIO3: true,
       cors: {
-        origin: "*",
+        origin: "localhost",
       },
     });
   }
