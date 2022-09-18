@@ -8,10 +8,11 @@ import store from "./store";
 
 import "./assets/style.css";
 
-const port = process.env.PORT || 3000;
+const port = import.meta.env.PORT || 3000;
 
 const app = createApp(App);
-const socket = socketIO(`localhost:${port}`, {
+const socket = socketIO(`:${port}`, {
+  secure: true,
   transports: ["websocket", "polling"],
 });
 

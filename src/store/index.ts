@@ -28,11 +28,9 @@ const store = createStore({
   },
   mutations: {
     SOCKET_DISCONNECT(state) {
-      console.log("Socket disconnected");
       state.connect = false;
     },
     SOCKET_CONNECT: (state, status) => {
-      console.log("Socket connected");
       state.connect = true;
     },
     SOCKET_UPDATE_ROOMS(state, payload) {
