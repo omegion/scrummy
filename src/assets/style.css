@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .cards .card.active {
+        background:
+            linear-gradient(45deg,theme(colors.pink.300) 12%,transparent 0,transparent 88%,theme(colors.pink.300) 0),
+            linear-gradient(135deg,transparent 37%,theme(colors.pink.500) 0,theme(colors.pink.500) 63%,transparent 0),
+            linear-gradient(45deg,transparent 37%,theme(colors.pink.300) 0,theme(colors.pink.300) 63%,transparent 0),
+            theme(colors.pink.600);
+        background-size: 17px 17px;
+    }
+}
+
