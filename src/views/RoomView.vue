@@ -13,6 +13,7 @@ import Cards from "@/components/Cards.vue";
 import { defineComponent } from "vue";
 import VotingDeck from "@/components/VotingDeck.vue";
 import RoomHeader from "@/components/RoomHeader.vue";
+import router from "@/router";
 
 export default defineComponent({
   components: {
@@ -20,13 +21,14 @@ export default defineComponent({
     VotingDeck,
     Cards,
   },
+  beforeRouteEnter(to, from, next) {
+    if (to.query.name === undefined || to.query.name === "") {
+      router.push(`/?room=${to.params.room}&nickname=false`);
+    }
+    next();
+  },
   mounted() {
     this.join();
-  },
-  beforeCreate() {
-    if (this.$route.query.name === undefined || this.$route.query.name === "") {
-      this.$router.push(`/?room=${this.$route.params.room}&nickname=false`);
-    }
   },
   beforeUnmount() {
     this.leave();
