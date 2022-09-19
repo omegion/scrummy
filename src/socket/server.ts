@@ -71,7 +71,6 @@ export class ChatServer {
 
     this.io.on("connect", (socket) => {
       console.log("[server] connected client on port %s.", this.port);
-      console.log("[server] current room number:", this.rooms.rooms.length);
 
       let parent = this;
       socket.on("join", function ({ roomName, userName }) {
@@ -145,16 +144,18 @@ export class ChatServer {
       });
 
       socket.on("disconnect", () => {
-        parent.rooms.leaveFromRoom(socket.data.roomName, socket.data.userId);
+        if (socket.data.roomName !== undefined) {
+          parent.rooms.leaveFromRoom(socket.data.roomName, socket.data.userId);
 
-        console.log(
-          "[server] %s left from the room %s",
-          socket.data.userName,
-          socket.data.roomName
-        );
+          console.log(
+            "[server] %s left from the room %s",
+            socket.data.userName,
+            socket.data.roomName
+          );
 
-        if (parent.rooms.deleteRoomIfEmpty(socket.data.roomName)) {
-          console.log("[server] room %s deleted", socket.data.roomName);
+          if (parent.rooms.deleteRoomIfEmpty(socket.data.roomName)) {
+            console.log("[server] room %s deleted", socket.data.roomName);
+          }
         }
 
         console.log("[server] current room number:", this.rooms.rooms.length);
