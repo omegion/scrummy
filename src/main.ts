@@ -7,7 +7,6 @@ import router from "./router";
 import store from "./store";
 
 import "./assets/style.css";
-import 'flowbite';
 
 const port = process.env.PORT || 3000;
 

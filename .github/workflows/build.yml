@@ -53,23 +53,23 @@ jobs:
           tags: ghcr.io/omegion/scrummy:latest,ghcr.io/omegion/scrummy:${{ steps.get_version.outputs.VERSION }}
           platforms: linux/amd64,linux/arm64
 
-  release:
-    name: Create Release
-    runs-on: 'ubuntu-latest'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Get the version
-        run: |
-          VERSION=$(echo $GITHUB_REF | cut -d / -f 3)
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-      - name: Release with Notes
-        uses: softprops/action-gh-release@v1
-        with:
-          name: Release ${{env.VERSION}}
-          body_path: ".github/RELEASE_NOTES.md"
-          draft: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#  release:
+#    name: Create Release
+#    runs-on: 'ubuntu-latest'
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+#        with:
+#          fetch-depth: 0
+#      - name: Get the version
+#        run: |
+#          VERSION=$(echo $GITHUB_REF | cut -d / -f 3)
+#          echo "VERSION=$VERSION" >> $GITHUB_ENV
+#      - name: Release with Notes
+#        uses: softprops/action-gh-release@v1
+#        with:
+#          name: Release ${{env.VERSION}}
+#          body_path: ".github/RELEASE_NOTES.md"
+#          draft: false
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
