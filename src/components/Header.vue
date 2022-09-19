@@ -11,7 +11,7 @@
               <img
                 :src="Logo"
                 class="mr-3 h-8 transition duration-300 group-hover:-rotate-45"
-                alt="Omegion Logo"
+                alt="Logo"
               />
               <span
                 class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
