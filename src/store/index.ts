@@ -9,11 +9,9 @@ const store = createStore({
   state: {
     connect: false,
     isLight: false,
+    room: {} as Room,
     deckItems: dockItems,
     harryPotterNames: harryPotterNames,
-    message: null,
-    rooms: [],
-    room: {} as Room,
   },
   getters: {
     isRevealed(state) {
@@ -30,21 +28,13 @@ const store = createStore({
     SOCKET_CONNECT: (state, status) => {
       state.connect = true;
     },
-    SOCKET_UPDATE_ROOMS(state, payload) {
-      console.log(payload);
-      state.rooms = payload.rooms;
-    },
     SOCKET_UPDATE_ROOM(state, payload) {
       state.room = payload.room;
     },
     SOCKET_ROOM_CREATED(state, payload) {
       console.log("created:", payload);
     },
-    SOCKET_NEW_USER_JOINED(state, payload) {
-      console.log("joined:", payload);
-    },
-    toggleLightMode(state) {
-      // localStorage is not yet set.
+    toggleLightMode() {
       if (
         localStorage.getItem("lightMode") === null ||
         localStorage.getItem("lightMode") === "false"
@@ -56,7 +46,6 @@ const store = createStore({
       this.commit("setLightMode");
     },
     setLightMode(state) {
-      // localStorage is not yet set.
       if (
         localStorage.getItem("lightMode") === null ||
         localStorage.getItem("lightMode") === "false"

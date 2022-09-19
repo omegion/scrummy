@@ -1,6 +1,5 @@
 <template>
   <section class="mt-16">
-    <h2 id="recent-heading" class="sr-only">Recent orders</h2>
     <div class="max-w-7xl mx-auto sm:px-2 lg:px-8">
       <div class="max-w-2xl mx-auto space-y-8 sm:px-4 lg:max-w-4xl lg:px-0">
         <div class="space-y-6">
