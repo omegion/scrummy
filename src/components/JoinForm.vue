@@ -19,7 +19,7 @@
                   </h3>
                   <p class="mt-1 text-sm text-gray-500 dark:text-slate-400">
                     Use a nickname and room name to join the game. If not, you
-                    will get random nickname and room.
+                    will get a random nickname and room.
                   </p>
                 </div>
 
