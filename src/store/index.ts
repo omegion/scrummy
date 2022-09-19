@@ -50,11 +50,10 @@ const store = createStore({
         localStorage.getItem("lightMode") === "false"
       ) {
         localStorage.setItem("lightMode", "true");
-        state.isLight = true;
       } else if (localStorage.getItem("lightMode") === "true") {
         localStorage.setItem("lightMode", "false");
-        state.isLight = false;
       }
+      this.commit("setLightMode");
     },
     setLightMode(state) {
       // localStorage is not yet set.
@@ -62,8 +61,10 @@ const store = createStore({
         localStorage.getItem("lightMode") === null ||
         localStorage.getItem("lightMode") === "false"
       ) {
+        document.getElementById("html-root")?.classList.add("dark");
         state.isLight = false;
       } else if (localStorage.getItem("lightMode") === "true") {
+        document.getElementById("html-root")?.classList.remove("dark");
         state.isLight = true;
       }
     },

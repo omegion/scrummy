@@ -1,27 +1,25 @@
 <template>
-  <div :class="{ dark: !$store.state.isLight }">
-    <div
-      class="bg-gray-50 dark:bg-slate-900 flex flex-col h-screen justify-between"
-    >
-      <Header />
-      <main class="py-16">
-        <router-view v-slot="{ Component, route }">
-          <transition
-            enter-active-class="duration-200 ease-out delay-300"
-            enter-from-class="transform opacity-0"
-            enter-to-class="opacity-100"
-            leave-active-class="duration-200 ease-in"
-            leave-from-class="opacity-100"
-            leave-to-class="transform opacity-0"
-          >
-            <div :key="route.name">
-              <component :is="Component" />
-            </div>
-          </transition>
-        </router-view>
-      </main>
-      <Footer />
-    </div>
+  <div
+    class="bg-gray-50 dark:bg-slate-900 flex flex-col h-screen justify-between"
+  >
+    <Header />
+    <main class="py-16">
+      <router-view v-slot="{ Component, route }">
+        <transition
+          enter-active-class="duration-200 ease-out delay-300"
+          enter-from-class="transform opacity-0"
+          enter-to-class="opacity-100"
+          leave-active-class="duration-200 ease-in"
+          leave-from-class="opacity-100"
+          leave-to-class="transform opacity-0"
+        >
+          <div :key="route.name">
+            <component :is="Component" />
+          </div>
+        </transition>
+      </router-view>
+    </main>
+    <Footer />
   </div>
 </template>
 
@@ -66,7 +64,7 @@ export default defineComponent({
       immediate: true,
     },
   },
-  mounted() {
+  beforeMount() {
     this.$store.commit("setLightMode");
   },
 });

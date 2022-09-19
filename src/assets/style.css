@@ -11,14 +11,5 @@
             theme(colors.pink.600);
         background-size: 17px 17px;
     }
-
-    .fade-enter-active,
-    .fade-leave-active {
-        transition: opacity 0.5s ease;
-    }
-    .fade-enter-from,
-    .fade-leave-to {
-        opacity: 0;
-    }
 }
 
