@@ -9,8 +9,8 @@
           <div class="flex-1 flex group">
             <router-link to="/" tag="a" class="flex items-center">
               <img
-                src="https://omegion.dev/logo-200.png"
-                class="mr-3 h-8 transition duration-300 group-hover:rotate-45"
+                :src="Logo"
+                class="mr-3 h-8 transition duration-300 group-hover:-rotate-45"
                 alt="Omegion Logo"
               />
               <span
@@ -67,7 +67,7 @@
   </header>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import {
   Menu,
   MenuButton,
@@ -81,6 +81,7 @@ import {
 } from "@headlessui/vue";
 
 import { SunIcon, MoonIcon } from "@heroicons/vue/24/solid";
+import Logo from "@/assets/img/logo.svg";
 
 export default defineComponent({
   components: {
@@ -95,6 +96,11 @@ export default defineComponent({
     Switch,
     SunIcon,
     MoonIcon,
+  },
+  data() {
+    return {
+      Logo,
+    };
   },
   computed: {
     darkMode: {

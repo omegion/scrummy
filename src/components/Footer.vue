@@ -9,8 +9,8 @@
           <div class="mb-6 md:mb-0">
             <router-link to="/" tag="a" class="flex items-center group">
               <img
-                src="https://omegion.dev/logo-200.png"
-                class="mr-3 h-8 transition duration-300 group-hover:rotate-45"
+                :src="Logo"
+                class="mr-3 h-8 transition duration-300 group-hover:-rotate-45"
                 alt="Omegion Logo"
               />
             </router-link>
@@ -69,6 +69,7 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/vue";
+import Logo from "@/assets/img/logo.svg";
 
 export default defineComponent({
   components: {
@@ -80,6 +81,11 @@ export default defineComponent({
     PopoverButton,
     PopoverGroup,
     PopoverPanel,
+  },
+  data() {
+    return {
+      Logo,
+    };
   },
 });
 </script>
