@@ -70,35 +70,6 @@ import {
   PopoverPanel,
 } from "@headlessui/vue";
 
-import { ServerIcon, ShoppingBagIcon } from "@heroicons/vue/24/outline";
-
-const footerNavigation = {
-  products: [
-    { name: "Bags", href: "#" },
-    { name: "Tees", href: "#" },
-    { name: "Objects", href: "#" },
-    { name: "Home Goods", href: "#" },
-    { name: "Accessories", href: "#" },
-  ],
-  company: [
-    { name: "Who we are", href: "#" },
-    { name: "Sustainability", href: "#" },
-    { name: "Press", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Terms & Conditions", href: "#" },
-    { name: "Privacy", href: "#" },
-  ],
-  customerService: [
-    { name: "Contact", href: "#" },
-    { name: "Shipping", href: "#" },
-    { name: "Returns", href: "#" },
-    { name: "Warranty", href: "#" },
-    { name: "Secure Payments", href: "#" },
-    { name: "FAQ", href: "#" },
-    { name: "Find a store", href: "#" },
-  ],
-};
-
 export default defineComponent({
   components: {
     Menu,
@@ -109,13 +80,6 @@ export default defineComponent({
     PopoverButton,
     PopoverGroup,
     PopoverPanel,
-    ServerIcon,
-    ShoppingBagIcon,
-  },
-  setup() {
-    return {
-      footerNavigation,
-    };
   },
 });
 </script>

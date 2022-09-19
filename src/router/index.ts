@@ -9,8 +9,8 @@ const router = createRouter({
       name: "home",
       component: HomeView,
       meta: {
-        title: "Scrummy - Scrum sizing game for remote teams"
-      }
+        title: "Scrummy - Scrum sizing game for remote teams",
+      },
     },
     {
       path: "/:room",
@@ -20,8 +20,8 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/RoomView.vue"),
       meta: {
-        title: "Scrummy - Scrum sizing game for remote teams"
-      }
+        title: "Scrummy - Scrum sizing game for remote teams",
+      },
     },
   ],
 });

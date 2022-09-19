@@ -1,11 +1,24 @@
 <template>
-  <div :class="{ dark: !isLight }">
+  <div :class="{ dark: !$store.state.isLight }">
     <div
-      class="bg-gray-50 dark:bg-slate-900 relative min-h-screen justify-between"
+      class="bg-gray-50 dark:bg-slate-900 flex flex-col h-screen justify-between"
     >
-      <Header @darkMoodToggled="darkMoodToggled" />
+      <Header />
       <main class="py-16">
-        <router-view />
+        <router-view v-slot="{ Component, route }">
+          <transition
+            enter-active-class="duration-200 ease-out delay-300"
+            enter-from-class="transform opacity-0"
+            enter-to-class="opacity-100"
+            leave-active-class="duration-200 ease-in"
+            leave-from-class="opacity-100"
+            leave-to-class="transform opacity-0"
+          >
+            <div :key="route.name">
+              <component :is="Component" />
+            </div>
+          </transition>
+        </router-view>
       </main>
       <Footer />
     </div>
@@ -29,9 +42,6 @@ import {
   PopoverPanel,
 } from "@headlessui/vue";
 
-import { AdjustmentsVerticalIcon } from "@heroicons/vue/24/outline";
-import { CheckCircleIcon } from "@heroicons/vue/24/solid";
-
 export default defineComponent({
   components: {
     Footer,
@@ -47,26 +57,17 @@ export default defineComponent({
     PopoverButton,
     PopoverGroup,
     PopoverPanel,
-    CheckCircleIcon,
-    AdjustmentsVerticalIcon,
-  },
-  data() {
-    return {
-      isLight: localStorage.getItem("lightMode") == "true",
-    };
   },
   watch: {
-    '$route':{
+    $route: {
       handler: (to, from) => {
-        document.title = to.meta.title
+        document.title = to.meta.title;
       },
-      immediate: true
-    }
-  },
-  methods: {
-    darkMoodToggled(val: boolean) {
-      this.isLight = val;
+      immediate: true,
     },
+  },
+  mounted() {
+    this.$store.commit("setLightMode");
   },
 });
 </script>

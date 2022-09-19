@@ -1,5 +1,4 @@
 import { createStore } from "vuex";
-import Cookies from "js-cookie";
 
 import type { Room } from "@/models/rooms";
 import dockItems from "./dockItems";
@@ -9,6 +8,7 @@ import router from "@/router";
 const store = createStore({
   state: {
     connect: false,
+    isLight: false,
     deckItems: dockItems,
     harryPotterNames: harryPotterNames,
     message: null,
@@ -21,9 +21,6 @@ const store = createStore({
     },
     roomUsersCount(state) {
       return state.room?.users?.length;
-    },
-    getLightModeVal() {
-      return !!Cookies.get("light_mode");
     },
   },
   mutations: {
@@ -46,6 +43,30 @@ const store = createStore({
     SOCKET_NEW_USER_JOINED(state, payload) {
       console.log("joined:", payload);
     },
+    toggleLightMode(state) {
+      // localStorage is not yet set.
+      if (
+        localStorage.getItem("lightMode") === null ||
+        localStorage.getItem("lightMode") === "false"
+      ) {
+        localStorage.setItem("lightMode", "true");
+        state.isLight = true;
+      } else if (localStorage.getItem("lightMode") === "true") {
+        localStorage.setItem("lightMode", "false");
+        state.isLight = false;
+      }
+    },
+    setLightMode(state) {
+      // localStorage is not yet set.
+      if (
+        localStorage.getItem("lightMode") === null ||
+        localStorage.getItem("lightMode") === "false"
+      ) {
+        state.isLight = false;
+      } else if (localStorage.getItem("lightMode") === "true") {
+        state.isLight = true;
+      }
+    },
   },
   actions: {
     socket_joined({ commit }) {
@@ -54,14 +75,6 @@ const store = createStore({
     socket_usernameTaken({ commit }, username) {
       console.log("username taken:", username);
       router.push("/?error=username_taken");
-    },
-    toggleLightMode() {
-      const current = Cookies.get("light_mode");
-      if (current) {
-        Cookies.remove("light_mode");
-      } else {
-        Cookies.set("light_mode", "true");
-      }
     },
   },
 });

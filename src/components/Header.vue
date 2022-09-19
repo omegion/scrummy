@@ -23,21 +23,21 @@
             <!-- Dark mode -->
             <div class="ml-4 flow-root lg:ml-8">
               <Switch
-                v-model="isDark"
+                v-model="darkMode"
                 :class="[
-                  isDark ? 'bg-gray-200': 'bg-gray-600',
+                  darkMode ? 'bg-gray-200' : 'bg-gray-600',
                   'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-pink-500',
                 ]"
               >
                 <span
                   :class="[
-                    isDark ? 'translate-x-0':'translate-x-5',
+                    darkMode ? 'translate-x-0' : 'translate-x-5',
                     'pointer-events-none relative inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200',
                   ]"
                 >
                   <span
                     :class="[
-                      isDark
+                      darkMode
                         ? 'opacity-0 ease-out duration-100'
                         : 'opacity-100 ease-in duration-200',
                       'absolute inset-0 h-full w-full flex items-center justify-center transition-opacity',
@@ -48,7 +48,7 @@
                   </span>
                   <span
                     :class="[
-                      isDark
+                      darkMode
                         ? 'opacity-100 ease-in duration-200'
                         : 'opacity-0 ease-out duration-100',
                       'absolute inset-0 h-full w-full flex items-center justify-center transition-opacity',
@@ -80,7 +80,6 @@ import {
   Switch,
 } from "@headlessui/vue";
 
-import { ServerIcon, ShoppingBagIcon } from "@heroicons/vue/24/outline";
 import { SunIcon, MoonIcon } from "@heroicons/vue/24/solid";
 
 export default defineComponent({
@@ -93,24 +92,18 @@ export default defineComponent({
     PopoverButton,
     PopoverGroup,
     PopoverPanel,
-    ServerIcon,
-    ShoppingBagIcon,
     Switch,
     SunIcon,
     MoonIcon,
   },
-  data() {
-    let isDark = localStorage.getItem("lightMode") == "true";
-    return {
-      holder: false,
-      isDark: isDark,
-    };
-  },
-  computed: {},
-  watch: {
-    isDark(val) {
-      this.$emit("darkMoodToggled", val);
-      localStorage.setItem("lightMode", val);
+  computed: {
+    darkMode: {
+      get() {
+        return this.$store.state.isLight;
+      },
+      set() {
+        this.$store.commit("toggleLightMode");
+      },
     },
   },
 });

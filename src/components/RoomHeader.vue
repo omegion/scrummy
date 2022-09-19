@@ -17,6 +17,13 @@
       <button
         type="button"
         class="ml-3 inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-pink-500 transition dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+        @click="copyRoomLink"
+      >
+        <LinkIcon class="h-4 w-4 dark:text-slate-50" />
+      </button>
+      <button
+        type="button"
+        class="ml-3 inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-pink-500 transition dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
         @click="reset"
       >
         Reset
@@ -34,12 +41,12 @@
 </template>
 
 <script lang="ts">
-import { CheckCircleIcon } from "@heroicons/vue/24/solid";
+import { LinkIcon } from "@heroicons/vue/24/solid";
 
 export default {
   name: "RoomHeader",
   components: {
-    CheckCircleIcon,
+    LinkIcon,
   },
   methods: {
     reset() {
@@ -51,6 +58,11 @@ export default {
       this.$socket.client.emit("toggle_reveal_cards", {
         roomName: this.$route.params.room,
       });
+    },
+    copyRoomLink() {
+      const roomLink = `${window.location.origin}${this.$route.path}`;
+      console.log(this.$route);
+      navigator.clipboard.writeText(roomLink);
     },
   },
 };

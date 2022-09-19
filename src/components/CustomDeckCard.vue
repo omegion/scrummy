@@ -15,7 +15,7 @@
       >
         <PopoverPanel
           v-slot="{ close }"
-          class="absolute z-10 -ml-4 -mt-72 -ml-48 transform w-screen max-w-md"
+          class="absolute z-10 -ml-4 -mt-80 -ml-80 transform w-screen max-w-md"
         >
           <div
             class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden border border-gray-50 dark:border-slate-600"
@@ -50,7 +50,6 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/vue";
-import { ChevronDownIcon } from "@heroicons/vue/24/solid";
 
 const items = [
   {
@@ -102,7 +101,6 @@ export default {
     PopoverButton,
     PopoverGroup,
     PopoverPanel,
-    ChevronDownIcon,
   },
   data() {
     return {

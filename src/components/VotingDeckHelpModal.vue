@@ -7,7 +7,7 @@
     <Dialog
       as="div"
       class="fixed z-10 inset-0 overflow-y-auto"
-      :class="{ dark: !isDark }"
+      :class="{ dark: !$store.state.isLight }"
       @close="open = false"
     >
       <div
@@ -121,7 +121,6 @@ import {
   TransitionChild,
   TransitionRoot,
 } from "@headlessui/vue";
-import { ShoppingBagIcon } from "@heroicons/vue/24/outline";
 import Card from "@/components/Card.vue";
 
 export default {
@@ -133,13 +132,11 @@ export default {
     DialogTitle,
     TransitionChild,
     TransitionRoot,
-    ShoppingBagIcon,
   },
 
   data() {
     return {
       open: false,
-      isDark: localStorage.getItem("lightMode") === "true",
     };
   },
 };
