@@ -21,16 +21,16 @@
             class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden border border-gray-50 dark:border-slate-600"
           >
             <div
-              class="relative grid gap-6 bg-white px-5 pr-10 py-6 sm:gap-8 grid-cols-5 dark:bg-slate-800"
+              class="relative grid gap-6 bg-white px-5 lg:pr-9 sm:pr-6 py-6 sm:gap-8 grid-cols-5 dark:bg-slate-800"
             >
               <div
                 v-for="(item, index) in items"
                 :key="index"
-                class="p-3 lg:pr-11 sm:pr-4 flex items-center cursor-pointer rounded-lg hover:bg-pink-200 dark:hover:bg-pink-700/50"
+                class="p-3 lg:pr-11 sm:pr-8 flex items-center cursor-pointer rounded-lg hover:bg-pink-200 dark:hover:bg-pink-700/50"
                 @click="select(item, close)"
               >
                 <div
-                  class="flex-shrink-0 flex items-center justify-center rounded-md lg:h-10 lg:w-10 sm:h-5 sm:w-5 lg:-ml-1 sm:ml-0 lg:text-4xl sm:text-3xl"
+                  class="flex-shrink-0 flex items-center justify-center rounded-md lg:h-10 lg:w-10 sm:h-5 sm:w-5 lg:-ml-1 lg:text-4xl sm:text-3xl"
                 >
                   {{ item.name }}
                 </div>

@@ -15,11 +15,11 @@
                   <h3
                     class="text-lg leading-6 font-medium text-gray-900 dark:text-slate-50"
                   >
-                    Room Information
+                    Information
                   </h3>
                   <p class="mt-1 text-sm text-gray-500 dark:text-slate-400">
                     Use a nickname and room name to join the game. If not, you
-                    will get random a nickname and room.
+                    will get random nickname and room.
                   </p>
                 </div>
 

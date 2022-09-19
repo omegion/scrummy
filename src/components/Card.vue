@@ -1,13 +1,13 @@
 <template>
   <li>
-    <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 content-center">
+    <div class="grid grid-cols-1 content-center">
       <div class="space-y-1.5">
         <div
           class="transition-transform"
           :class="[cardTransClass, cardRevealedClass]"
         >
           <div
-            class="card group relative mx-3 border border-gray-300 rounded-lg bg-gray-200 sm:py-10 sm:px-8 py-8 px-4 flex items-center justify-center text-sm font-medium focus:outline-none sm:flex-1 shadow-sm text-gray-900 dark:bg-slate-800 dark:border-slate-500 dark:text-slate-50"
+            class="card group relative lg:mx-3 border border-gray-300 rounded-lg bg-gray-200 sm:py-10 sm:px-8 py-8 px-4 flex items-center justify-center text-sm font-medium focus:outline-none sm:flex-1 shadow-sm text-gray-900 dark:bg-slate-800 dark:border-slate-500 dark:text-slate-50"
             :class="[cardClass]"
           >
             <div

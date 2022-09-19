@@ -64,7 +64,7 @@
                       revealed, others will not see your vote.
                     </p>
                     <div
-                      class="grid grid-cols-4 gap-6 lg:py-14 cards content-center"
+                      class="grid grid-cols-4 gap-6 py-14 cards content-center"
                     >
                       <div
                         class="card group relative mx-3 border border-gray-300 rounded-lg bg-gray-200 sm:py-10 sm:px-8 py-8 px-4 flex items-center justify-center text-sm font-medium focus:outline-none sm:flex-1 shadow-sm text-gray-900 active ring-pink-500 dark:bg-slate-800 dark:border-slate-500 dark:text-slate-50"

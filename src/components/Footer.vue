@@ -5,7 +5,7 @@
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="py-20">
-        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+        <div class="lg:grid lg:grid-cols-3 lg:gap-8">
           <div class="mb-6 md:mb-0">
             <router-link to="/" tag="a" class="flex items-center group">
               <img
