@@ -19,7 +19,12 @@
         class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-pink-500 transition dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
         @click="copyRoomLink"
       >
-        <LinkIcon class="h-4 w-4 dark:text-slate-50" />
+        <span v-if="roomLinkCopied" class="transition"> Copied </span>
+        <span v-else>
+          <LinkIcon
+            class="h-4 w-4 dark:text-slate-50 http://localhost:5173/Slytherin"
+          />
+        </span>
       </button>
       <button
         type="button"
@@ -33,7 +38,7 @@
         class="ml-3 inline-flex items-center px-4 py-2 border rounded-md shadow-sm text-sm font-medium text-white bg-white focus:outline-none focus:ring-4 ring-offset-0 ring-pink-500 border-transparent text-white bg-pink-600 hover:bg-pink-700 transition"
         @click="toggleRevealCards"
       >
-        <span v-if="$store.getters.isRevealed"> Unreveal cards </span>
+        <span v-if="$store.getters.isRevealed"> Hide cards </span>
         <span v-else>Reveal cards</span>
       </button>
     </div>
@@ -48,6 +53,11 @@ export default {
   components: {
     LinkIcon,
   },
+  data() {
+    return {
+      roomLinkCopied: false as boolean,
+    };
+  },
   methods: {
     reset() {
       this.$socket.client.emit("reset", {
@@ -61,8 +71,12 @@ export default {
     },
     copyRoomLink() {
       const roomLink = `${window.location.origin}${this.$route.path}`;
-      console.log(this.$route);
       navigator.clipboard.writeText(roomLink);
+      this.roomLinkCopied = true;
+
+      setTimeout(() => {
+        this.roomLinkCopied = false;
+      }, "2000");
     },
   },
 };
