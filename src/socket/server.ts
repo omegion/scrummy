@@ -2,10 +2,10 @@ import express from "express";
 import cors from "cors";
 import * as http from "http";
 import * as socketio from "socket.io";
+import path from "path";
 
 import { Rooms } from "../models/rooms";
 import { User } from "../models/user";
-import path from "path";
 
 const staticFileMiddleware = express.static(
   path.join(__dirname, "..", "..", "frontend")
@@ -55,7 +55,7 @@ export class ChatServer {
     this.io = new socketio.Server(this.server, {
       allowEIO3: true,
       cors: {
-        origin: "localhost",
+        origin: "localhost:*",
       },
     });
   }
