@@ -9,7 +9,7 @@
           <div class="mb-6 md:mb-0">
             <router-link to="/" tag="a" class="flex items-center group">
               <img
-                :src="Logo"
+                :src="logo"
                 class="mr-3 h-8 transition duration-300 group-hover:-rotate-45"
                 alt="Omegion Logo"
               />
@@ -69,7 +69,8 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/vue";
-import Logo from "@/assets/img/logo.svg";
+import LogoDark from "@/assets/img/logo-dark.svg";
+import LogoLight from "@/assets/img/logo-light.svg";
 
 export default defineComponent({
   components: {
@@ -84,9 +85,18 @@ export default defineComponent({
   },
   data() {
     return {
-      Logo,
+      LogoDark,
+      LogoLight,
       version: APP_VERSION,
     };
+  },
+  computed: {
+    logo() {
+      if (this.$store.state.isLight) {
+        return LogoDark;
+      }
+      return LogoLight;
+    },
   },
 });
 </script>

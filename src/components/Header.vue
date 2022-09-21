@@ -9,7 +9,7 @@
           <div class="flex-1 flex group">
             <router-link to="/" tag="a" class="flex items-center">
               <img
-                :src="Logo"
+                :src="logo"
                 class="mr-3 h-8 transition duration-300 group-hover:-rotate-45"
                 alt="Logo"
               />
@@ -81,7 +81,8 @@ import {
 } from "@headlessui/vue";
 
 import { SunIcon, MoonIcon } from "@heroicons/vue/24/solid";
-import Logo from "@/assets/img/logo.svg";
+import LogoDark from "@/assets/img/logo-dark.svg";
+import LogoLight from "@/assets/img/logo-light.svg";
 
 export default defineComponent({
   components: {
@@ -99,7 +100,8 @@ export default defineComponent({
   },
   data() {
     return {
-      Logo,
+      LogoDark,
+      LogoLight,
     };
   },
   computed: {
@@ -110,6 +112,12 @@ export default defineComponent({
       set() {
         this.$store.commit("toggleLightMode");
       },
+    },
+    logo() {
+      if (this.$store.state.isLight) {
+        return LogoDark;
+      }
+      return LogoLight;
     },
   },
 });
