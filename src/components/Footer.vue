@@ -29,7 +29,7 @@
           <span class="text-sm text-gray-500 sm:text-center dark:text-slate-400"
             >© {{ new Date().getFullYear() }}
             <a href="https://omegion.dev" class="hover:underline">Omegion</a>.
-            All Rights Reserved.
+            All Rights Reserved. v{{ version }}
           </span>
           <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a
@@ -85,6 +85,7 @@ export default defineComponent({
   data() {
     return {
       Logo,
+      version: APP_VERSION,
     };
   },
 });
