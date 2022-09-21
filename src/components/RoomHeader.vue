@@ -4,12 +4,19 @@
       <h2
         class="text-2xl font-bold leading-7 text-gray-900 dark:text-slate-50 sm:text-3xl sm:truncate"
       >
-        {{ $store.getters.roomUsersCount }} players playing
+        {{ $store.getters.roomUsersCount }} player<span
+          v-if="$store.getters.roomUsersCount > 1"
+          >s</span
+        >
+        playing
       </h2>
       <p class="mt-2 text-sm text-gray-500 dark:text-slate-400">
         There are
-        <strong>{{ $store.getters.roomUsersCount }} </strong> players in the
-        room <strong>{{ $route.params.room }}</strong
+        <strong>{{ $store.getters.roomUsersCount }} </strong> player<span
+          v-if="$store.getters.roomUsersCount > 1"
+          >s</span
+        >
+        in the room <strong>{{ $route.params.room }}</strong
         >.
       </p>
     </div>
