@@ -1,10 +1,10 @@
 {
   "name": "scrummy",
-  "version": "0.27.0",
+  "version": "0.26.0",
   "scripts": {
-    "serve": "concurrently \"npm run dev:server\" \"npm run dev\" --raw",
-    "dev": "vite",
+    "dev:vite": "vite",
     "dev:server": "nodemon --config ./nodemon.config.json",
+    "serve": "run-p dev:*",
     "server": "node dist/server/socket/index.js",
     "server-build": "tsc --p  tsconfig.server.json",
     "build": "run-p build-only server-build",
