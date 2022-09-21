@@ -11,7 +11,8 @@
         playing
       </h2>
       <p class="mt-2 text-sm text-gray-500 dark:text-slate-400">
-        There are
+        There <span v-if="$store.getters.roomUsersCount > 1">are </span
+        ><span v-else>is </span>
         <strong>{{ $store.getters.roomUsersCount }} </strong> player<span
           v-if="$store.getters.roomUsersCount > 1"
           >s</span
