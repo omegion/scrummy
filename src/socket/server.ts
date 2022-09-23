@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import winston, { Logger, format } from "winston";
 import * as http from "http";
 import * as socketio from "socket.io";
 import path from "path";
@@ -16,6 +17,7 @@ export class ChatServer {
   private app: express.Application;
   private server: http.Server;
   private io: socketio.Server;
+  private logger: Logger;
   private port: string | number;
   private rooms: Rooms;
 
@@ -40,7 +42,23 @@ export class ChatServer {
         index: "/index.html",
       })
     );
-    this.app.use(staticFileMiddleware);
+
+    this.logger = winston.createLogger({
+      transports: [new winston.transports.Console({ level: "debug" })],
+      exitOnError: false,
+      format: format.combine(
+        format.timestamp(),
+        format.splat(),
+        format.printf(
+          (info) =>
+            `${JSON.stringify({
+              timestamp: info.timestamp,
+              level: info.level,
+              message: info.message,
+            })}`
+        )
+      ),
+    });
   }
 
   private createServer(): void {
@@ -66,11 +84,11 @@ export class ChatServer {
     });
 
     this.server.listen(this.port, () => {
-      console.log("Running server on port %s", this.port);
+      this.logger.info("Running server on port %s", this.port);
     });
 
     this.io.on("connect", (socket) => {
-      console.log("[server] connected client on port %s.", this.port);
+      this.logger.info("a connected client on port %s.", this.port);
 
       let parent = this;
       socket.on("join", function ({ roomName, userName }) {
@@ -84,7 +102,7 @@ export class ChatServer {
 
         parent.rooms.joinToRoom(roomName, user);
 
-        console.log("[server] %s joined to the room %s", userName, roomName);
+        parent.logger.info("%s joined to the room %s", userName, roomName);
 
         parent.updateStats(roomName);
       });
@@ -96,8 +114,8 @@ export class ChatServer {
           vote
         );
 
-        console.log(
-          "[server] %s has voted %s in room %s",
+        parent.logger.info(
+          "%s has voted %s in room %s",
           socket.data.userName,
           vote,
           socket.data.roomName
@@ -109,7 +127,7 @@ export class ChatServer {
       socket.on("toggle_reveal_cards", function () {
         parent.rooms.toogleRevealRoomCards(socket.data.roomName);
 
-        console.log("[server] room %s revealed", socket.data.roomName);
+        parent.logger.info("room %s revealed", socket.data.roomName);
 
         parent.updateStats(socket.data.roomName);
       });
@@ -117,8 +135,8 @@ export class ChatServer {
       socket.on("reset", function () {
         parent.rooms.resetRoom(socket.data.roomName);
 
-        console.log(
-          "[server] %s has reset the room %s",
+        parent.logger.info(
+          "%s has reset the room %s",
           socket.data.userName,
           socket.data.roomName
         );
@@ -130,14 +148,14 @@ export class ChatServer {
       socket.on("leave", function () {
         parent.rooms.leaveFromRoom(socket.data.roomName, socket.data.userId);
 
-        console.log(
-          "[server] %s left the room %s",
+        parent.logger.info(
+          "%s left the room %s",
           socket.data.userName,
           socket.data.roomName
         );
 
         if (parent.rooms.deleteRoomIfEmpty(socket.data.roomName)) {
-          console.log("[server] room %s deleted", socket.data.roomName);
+          parent.logger.info("room %s deleted", socket.data.roomName);
         }
 
         parent.updateStats(socket.data.roomName);
@@ -147,18 +165,18 @@ export class ChatServer {
         if (socket.data.roomName !== undefined) {
           parent.rooms.leaveFromRoom(socket.data.roomName, socket.data.userId);
 
-          console.log(
-            "[server] %s left from the room %s",
+          parent.logger.info(
+            "%s left from the room %s",
             socket.data.userName,
             socket.data.roomName
           );
 
           if (parent.rooms.deleteRoomIfEmpty(socket.data.roomName)) {
-            console.log("[server] room %s deleted", socket.data.roomName);
+            parent.logger.info("room %s deleted", socket.data.roomName);
           }
         }
 
-        console.log("[server] current room number:", this.rooms.rooms.length);
+        parent.logger.info("current room number:", this.rooms.rooms.length);
 
         parent.updateStats(socket.data.roomName);
       });

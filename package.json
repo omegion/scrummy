@@ -1,6 +1,6 @@
 {
   "name": "scrummy",
-  "version": "0.31.0",
+  "version": "0.32.0",
   "scripts": {
     "dev:vite": "vite",
     "dev:server": "nodemon --config ./nodemon.config.json",
@@ -21,7 +21,8 @@
     "vue": "^3.2.38",
     "vue-router": "^4.1.5",
     "vue-socket.io-extended": "^5.0.0-alpha.5",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@headlessui/vue": "^1.7.2",
