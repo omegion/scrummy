@@ -176,7 +176,7 @@ export class ChatServer {
           }
         }
 
-        parent.logger.info("current room number:", this.rooms.rooms.length);
+        parent.logger.info("current room number: %d", this.rooms.rooms.length);
 
         parent.updateStats(socket.data.roomName);
       });
