@@ -36,12 +36,12 @@ export class ChatServer {
 
     this.app = express();
     this.app.use(cors());
-    this.app.use(staticFileMiddleware);
     this.app.use(
       history({
         index: "/index.html",
       })
     );
+    this.app.use(staticFileMiddleware);
 
     this.logger = winston.createLogger({
       transports: [new winston.transports.Console({ level: "debug" })],
