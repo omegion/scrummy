@@ -5,7 +5,7 @@
         <div class="space-y-6">
           <form @submit.prevent="join">
             <div
-              class="shadow border border-gray-100 sm:rounded-md sm:overflow-hidden dark:border-slate-700"
+              class="shadow-sm border border-gray-200 sm:rounded-md sm:overflow-hidden dark:border-slate-700"
             >
               <div
                 class="bg-white py-6 px-4 space-y-6 sm:p-6 dark:bg-slate-800 dark:border-b dark:border-slate-600"

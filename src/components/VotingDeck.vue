@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto sm:px-2 lg:px-8">
       <div class="max-w-2xl mx-auto space-y-8 sm:px-4 lg:max-w-4xl lg:px-0">
         <div
-          class="bg-white border-t border-b border-gray-200 shadow-sm sm:rounded-lg sm:border dark:bg-slate-900 dark:border-slate-600"
+          class="bg-white border border-gray-200 shadow-sm sm:rounded-lg sm:border dark:bg-slate-900 dark:border-slate-600"
         >
           <div class="px-4 py-5 sm:p-6">
             <div class="mt-0">
