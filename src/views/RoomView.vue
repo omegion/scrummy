@@ -23,7 +23,7 @@ export default defineComponent({
   },
   beforeRouteEnter(to, from, next) {
     if (to.query.name === undefined || to.query.name === "") {
-      router.push(`/?room=${to.params.room}&nickname=false`);
+      router.push(`/?room=${to.params.room}`);
     }
     next();
   },
