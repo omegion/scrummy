@@ -1,11 +1,8 @@
 <template>
-  <li>
+  <li :class="{ 'opacity-50': $store.getters.isRevealed && !user?.vote.name }">
     <div class="grid grid-cols-1 content-center">
       <div class="space-y-1.5">
-        <div
-          class="transition-transform"
-          :class="[cardTransClass, cardRevealedClass]"
-        >
+        <div class="transition-transform" :class="[cardTransClass]">
           <div
             class="card group relative lg:mx-3 border border-gray-300 rounded-lg bg-gray-200 sm:py-10 sm:px-8 py-8 px-4 flex items-center justify-center text-sm font-medium focus:outline-none sm:flex-1 shadow-sm text-gray-900 dark:bg-slate-800 dark:border-slate-500 dark:text-slate-50"
             :class="[cardClass]"
@@ -64,14 +61,8 @@ export default defineComponent({
   computed: {
     cardClass() {
       return Object.keys(this.user?.vote).length &&
-        !this.$store.getters.isRevealed > 0
+        !this.$store.getters.isRevealed
         ? "active ring-pink-500"
-        : "";
-    },
-    cardRevealedClass() {
-      return Object.keys(this.user?.vote).length &&
-        this.$store.getters.isRevealed
-        ? "revealed"
         : "";
     },
     cardTransClass() {
