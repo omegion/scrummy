@@ -2,6 +2,7 @@ import { createApp, ref } from "vue";
 import App from "./App.vue";
 import VueSocketIOExt from "vue-socket.io-extended";
 import socketIO from "socket.io-client";
+import VueGtag from "vue-gtag";
 
 import router from "./router";
 import store from "./store";
@@ -19,5 +20,12 @@ const socket = socketIO(`:${port}`, {
 app.use(router);
 app.use(store);
 app.use(VueSocketIOExt, socket, { store: store });
+app.use(VueGtag, {
+      appName: 'Scrummy',
+      pageTrackerScreenviewEnabled: true,
+      config: {id: "G-005X6P70MH"},
+    },
+    router
+);
 
 app.mount("#app");
