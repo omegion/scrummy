@@ -1,4 +1,4 @@
-FROM node:18-alpine as build
+FROM node:19-alpine as build
 
 ENV PORT 443
 
@@ -15,7 +15,7 @@ RUN npm run build
 
 RUN npm prune --production
 
-FROM node:18-alpine
+FROM node:19-alpine
 
 ENV PORT 443
 ENV NODE_ENV production
