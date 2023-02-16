@@ -62,7 +62,7 @@
                 <button
                   @click="join"
                   type="submit"
-                  class="inline-flex items-center px-4 py-2 border rounded-md shadow-sm text-sm font-medium text-white bg-white focus:outline-none focus:ring-4 ring-offset-0 ring-pink-500 border-transparent text-white bg-pink-600 hover:bg-pink-700 transition"
+                  class="inline-flex items-center px-4 py-2 border rounded-md shadow-sm text-sm font-medium text-white bg-pink-600 focus:outline-none focus:ring-4 ring-offset-0 ring-pink-500 border-transparent text-white hover:bg-pink-700 transition"
                 >
                   Join
                 </button>

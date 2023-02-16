@@ -43,7 +43,7 @@
       </button>
       <button
         type="button"
-        class="ml-3 inline-flex items-center px-4 py-2 border rounded-md shadow-sm text-sm font-medium text-white bg-white focus:outline-none focus:ring-4 ring-offset-0 ring-pink-500 border-transparent text-white bg-pink-600 hover:bg-pink-700 transition"
+        class="ml-3 inline-flex items-center px-4 py-2 border rounded-md shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-4 ring-offset-0 ring-pink-500 border-transparent text-white bg-pink-600 hover:bg-pink-700 transition"
         @click="toggleRevealCards"
       >
         <span v-if="$store.getters.isRevealed"> Hide cards </span>
