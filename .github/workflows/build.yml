@@ -25,6 +25,9 @@ jobs:
           githubToken: ${{ secrets.GT_VAULT_AUTH_TOKEN }}
           secrets: |
             github/data/token registry_write | GITHUB_REGISTRY_TOKEN ;
+          extraHeaders: |
+            CF-Access-Client-Id: ${{ secrets.CF_SERVICE_TOKEN_CLIENT_ID }}
+            CF-Access-Client-Secret: ${{ secrets.CF_SERVICE_TOKEN_CLIENT_SECRET }}
 
       - name: Get the version
         id: get_version
