@@ -16,6 +16,19 @@ jobs:
         with:
           node-version: 18
 
+      - name: Import Secrets
+        id: secrets
+        uses: hashicorp/vault-action@v2.5.0
+        with:
+          url: ${{ secrets.VAULT_ADDR }}
+          method: github
+          githubToken: ${{ secrets.GT_VAULT_AUTH_TOKEN }}
+          secrets: |
+            github/data/token registry_write | GITHUB_REGISTRY_TOKEN ;
+          extraHeaders: |
+            CF-Access-Client-Id: ${{ secrets.CF_SERVICE_TOKEN_CLIENT_ID }}
+            CF-Access-Client-Secret: ${{ secrets.CF_SERVICE_TOKEN_CLIENT_SECRET }}
+
       - name: Get the version
         id: get_version
         run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
@@ -31,7 +44,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.GH_REGISTRY_TOKEN }}
+          password: ${{ steps.secrets.outputs.GITHUB_REGISTRY_TOKEN }}
 
       - name: Build and push to GitHub
         id: github_build
