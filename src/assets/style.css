@@ -11,5 +11,13 @@
             theme(colors.pink.600);
         background-size: 17px 17px;
     }
+
+    .input-style {
+        @apply mt-1 transition hover:transition-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-offset-0 focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500
+    }
+
+    .button-style {
+        @apply inline-flex transition hover:transition-none items-center px-4 py-2 border rounded-md shadow-sm text-sm font-medium text-white bg-pink-600 focus:outline-none focus:ring-4 ring-offset-0 ring-pink-500 border-transparent text-white hover:bg-pink-700 transition
+    }
 }
 

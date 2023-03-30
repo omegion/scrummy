@@ -1,6 +1,6 @@
 {
   "name": "scrummy",
-  "version": "0.50.0",
+  "version": "0.51.0",
   "scripts": {
     "dev:vite": "vite",
     "dev:server": "nodemon --config ./nodemon.config.json",

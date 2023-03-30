@@ -36,7 +36,7 @@
                       id="user"
                       ref="user"
                       :placeholder="userPlaceholder"
-                      class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-offset-0 focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5 transition dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
+                      class="input-style"
                     />
                   </div>
                 </div>
@@ -53,7 +53,7 @@
                       name="room"
                       id="room"
                       :placeholder="roomPlaceholder"
-                      class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-offset-0 focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5 transition dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
+                      class="input-style"
                     />
                   </div>
                 </div>
@@ -62,7 +62,7 @@
                 <button
                   @click="join"
                   type="submit"
-                  class="inline-flex items-center px-4 py-2 border rounded-md shadow-sm text-sm font-medium text-white bg-pink-600 focus:outline-none focus:ring-4 ring-offset-0 ring-pink-500 border-transparent text-white hover:bg-pink-700 transition"
+                  class="button-style"
                 >
                   Join
                 </button>

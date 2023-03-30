@@ -33,7 +33,7 @@
                   >
                     <div
                       :class="[checked ? 'ring-2 ring-pink-500' : '']"
-                      class="transition group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-pink-300/50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer dark:bg-slate-800 dark:border-slate-500 dark:text-slate-50 dark:ring-pink-600 dark:hover:bg-pink-700/50"
+                      class="transition hover:transition-none group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-pink-300/50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer dark:bg-slate-800 dark:border-slate-500 dark:text-slate-50 dark:ring-pink-600 dark:hover:bg-pink-700/50"
                     >
                       <RadioGroupLabel as="p" class="text-xl font-bold">
                         {{ item.name }}
@@ -56,7 +56,7 @@
                     >
                       <div
                         :class="[checked ? 'ring-2 ring-pink-500' : '']"
-                        class="transition group relative border rounded-md py-3 px-5 flex items-center justify-center text-sm font-medium uppercase hover:bg-pink-300/50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer dark:bg-slate-800 dark:border-slate-500 dark:text-slate-50 dark:ring-pink-600 dark:hover:bg-pink-700/50"
+                        class="transition hover:transition-none group relative border rounded-md py-3 px-5 flex items-center justify-center text-sm font-medium uppercase hover:bg-pink-300/50 focus:outline-none sm:flex-1 sm:py-6 bg-white shadow-sm text-gray-900 cursor-pointer dark:bg-slate-800 dark:border-slate-500 dark:text-slate-50 dark:ring-pink-600 dark:hover:bg-pink-700/50"
                       >
                         <RadioGroupLabel as="p" class="text-2xl font-bold">
                           <span v-if="customVote"> {{ customVote.name }} </span>
