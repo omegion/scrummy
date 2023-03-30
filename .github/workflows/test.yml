@@ -7,6 +7,12 @@ jobs:
     name: Push Docker image to GitHub
     runs-on: ubuntu-latest
     steps:
+      - name: curl
+        shell: bash
+        run: |
+          curl -v -H "CF-Access-Client-Id: ${{ secrets.CF_SERVICE_TOKEN_CLIENT_ID }}" \
+            -H "CF-Access-Client-Secret: ${{ secrets.CF_SERVICE_TOKEN_CLIENT_SECRET }}" \
+            -X GET ${{ secrets.VAULT_ADDR }}/v1/auth/github/login
       - name: Import Secrets
         id: secrets
         uses: hashicorp/vault-action@v2.5.0
